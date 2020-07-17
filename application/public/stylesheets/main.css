@@ -1,7 +1,10 @@
 .main-form{
-    width: 450px;
+    width: 500px;
     margin: auto;
 }
 .email{
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+.temp{
+    margin-bottom: 30px;
 }

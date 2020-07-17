@@ -25,41 +25,49 @@
         <h2>Survey</h2>
       </div>
     </header>
-    <form class="main-form">
+    <form class="main-form needs-validation" novalidate="">
       <div class="row">
-        <div class="col">
+        <div class="col-md-6 mb-3">
           <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input required type="text" maxlength="40" name="firstName" class="form-control">
+            <label for="firstName">First name</label>
+            <input required type="text" maxlength="40" name="firstName" class="form-control"/>
+            <div class="invalid-feedback">First name is required</div>
           </div>
         </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="lastName">Last Name</label>
+        <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
             <input required type="text" maxlength="40" name="lastName" class="form-control">
-          </div>
+            <div class="invalid-feedback">Last name is required</div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <div class="form-group">
-            <label for="address">Address</label>
-            <input required name="address" type="text" maxlength="40" class="form-control">
+      <div class="mb-3">
+        <div class="temp">
+          <label for="email">Email</label>
+          <div class="email">
+            <input required type="email" name="email" placeholder="Email" class="form-control" placeholder="you@example.com">
+           <div class="invalid-feedback">Please enter a valid email</div>
           </div>
+          <input required type="email" name="confirmEmail" class="form-control" placeholder="Re-enter email">
+          <div class="invalid-feedback">Emails do not match</div>
         </div>
       </div>
+      <div class="mb-3">
+        <label for="address">Address</label>
+        <input class="form-control" required type="text" maxlength="40" placeholder="1234 Main St"/>
+        <div class="invalid-feedback">Address is required</div>
+      </div>
       <div class="row">
-        <div class="col">
-          <div class="form-group">
-            <label for="city">City</label>
-            <input required name="city" type="text" maxlength="40" class="form-control">
-          </div>
+        <div class="col-md-4 mb-3">
+            <!--<label for="city">City</label>-->
+            <div class="form-group">
+              <input required name="city" type="text" maxlength="40" class="form-control" placeholder="City">
+              <div class="invalid-feedback">City is required</div>
+            </div>
         </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="state">State</label>
+        <div class="col-md-4 mb-3">
+            <!--<label for="state">State</label>-->
             <select required name="state" class="form-control">
-              <option value="0">State</option>
+              <option selected="true" disabled="disabled">State</option>
               <option value="AL">Alabama</option>
 	            <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -111,22 +119,23 @@
               <option value="WV">West Virginia</option>
               <option value="WI">Wisconsin</option>
               <option value="WY">Wyoming</option>
-          </select> 
-          </div>
+            </select>
+            <div class="invalid-feedback">Please provide a valid state</div> 
         </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="zipcode">Zipcode</label>
+        <div class="col-md-4 mb-3">
+            <!--<label for="zipcode">Zipcode</label>-->
             <input required name="zipcode" type="text" maxlength="5" class="form-control" placeholder="Zip">
-          </div>
+            <div class="invalid-feedback">Zip code required</div>
         </div>
       </div>
-      <label for="birthDate">Birth Date</label>
+      <div class="mb-3">
+        <label for="birthDate">Birth Date</label>
+      </div>
       <div class="row" name="birthDate">
         <div class="col">
           <div class="form-group">
             <select required name="month" class="form-control">
-              <option value="0">Month</option>
+              <option selected="true" disabled="disabled">Month</option>
               <option value="1">Jan</option>
               <option value="2">Feb</option>
               <option value="3">Mar</option>
@@ -145,7 +154,7 @@
         <div class="col">
           <div class="form-group">
             <select required name="day" class="form-control">
-              <option value="0">Day</option>
+              <option selected="true" disabled="disabled">Day</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -183,7 +192,7 @@
         <div class="col">
           <div class="form-group">
             <select aria-label="Year" name="year" id="year" class="form-control">
-              <option value="0">Year</option>
+              <option selected="true" disabled="disabled">Year</option>
               <option value="2020">2020</option>
               <option value="2019">2019</option>
               <option value="2018">2018</option>
@@ -353,23 +362,18 @@
         <input required type="tel" maxlength="7" name="number" class="form-control">
       </div>
       <div class="form-group">
-        <label for="email">Email</label>
-        <div class="email">
-          <input required type="email" name="email" placeholder="Email" class="form-control">
+        <div class="form-check">
+          <input id ="tos" type="checkbox" class="form-check-input">
+          <label for="tos" class="form-check-label">
+            <a href="">Accept Terms & Conditions</a>
+          </label>
         </div>
-        <input required type="email" name="confirmEmail" class="form-control" placeholder="Re-enter email">
-      </div>
-      <div class="form-check">
-        <input id ="tos" type="checkbox" class="form-check-input">
-        <label for="tos" class="form-check-label">
-          <a href="">Accept Terms & Conditions</a>
-        </label>
       </div>
       <!--
       <div class="g-reCAPTCHA" data-sitekey="your_site_key"></div>
       -->
       <div>
-        <input type="submit">
+        <input type="submit" class="form-control">
       </div>
     </form>
     <div>
