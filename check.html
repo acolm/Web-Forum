@@ -36,9 +36,67 @@
               </div>
             </div>
           </div>
-    </div>
-    <div class="mb-3">
-        <input type="email" name="email" id="email" class="form-control">
+        <div class="mb-3">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="form-control" disabled>
+            <a id="confirmEmail">
+        </div>
+        <div class="mb-3">
+            <label for="address">Address</label>
+            <input class="form-control" type="text" id="address" name="address" disabled/>
+        </div>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <label for="city">City</label>
+                  <input name="city" type="text" id="city" class="form-control" disabled>
+            </div>
+            <div class="col-md-5 mb-3">
+                <label for="state">State</label>
+                <input name="state" type="text" id="state" class="form-control" disabled>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="form-group">
+                  <label for="zipcode">Zipcode</label>
+                  <input name="zipcode" type="text" id="zipcode" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+        <label for="birthDate">Birth Date</label>
+        <div class="row" name="birthDate">
+            <div class="col-md-4 mb-3">
+                <input name="month" type="text" id="month" class="form-control" disabled>
+            </div>
+            <div class="col-md-4 mb-3">
+                <input name="day" type="text" id="day" class="form-control" disabled>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="form-group">
+                  <input rname="year" type="text" id="year" class="form-control" disabled>
+                </div>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="temp">
+              <label for="number">Phone Number</label>
+              <input type="tel" name="number" id="number" class="form-control" disabled>
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="temp">
+              <label for="education">Education</label>
+              <input name="education" type="text" id="education" class="form-control" disabled />
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="feet">Feet</label>
+                    <input name="feet" type="text" id="feet" class="form-control" disabled>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="inches">Inches</label>
+                    <input name="inches" type="text" id="inches" class="form-control" disabled>
+                </div>
+            </div>
     </div>
     <script>
         function initMap() {
