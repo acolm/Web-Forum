@@ -11,24 +11,6 @@
     <link rel="stylesheet" type="text/css" href="main.css"> 
     
     <script src="https://www.google.com/reCAPTCHA/api.js" async defer></script>
-    <script>
-      function saveData(from){
-        document.cookie = "firstName=" + form[0].firstName.value + ";";
-        document.cookie ="lastName="+ form[0].lastName.value + ";";
-        document.cookie ="email="+ form[0].email.value + ";";
-        document.cookie ="address"+ form[0].address.value + ";";
-        document.cookie ="city="+ form[0].city.value + ";";
-        document.cookie ="state="+ form[0].state.value + ";";
-        document.cookie ="zipcode="+ form[0].zipcode.value + ";";
-        document.cookie ="month="+ form[0].month.value + ";";
-        document.cookie ="day="+ form[0].day.value + ";";
-        document.cookie ="year="+ form[0].year.value + ";";
-        document.cookie ="number="+ form[0].number.value + ";";
-        document.cookie ="education="+ form[0].education.value + ";";
-        document.cookie ="feet="+ form[0].feet.value + ";";
-        document.cookie ="inches="+ form[0].inches.value + ";";
-      }
-    </script>
     </head>
   <body>
     <header>
@@ -36,7 +18,7 @@
         <h2>Survey</h2>
       </div>
     </header>
-    <form class="main-form needs-validation" novalidate="" method="POST" action="check.html">
+    <form class="main-form needs-validation" novalidate="" method="GET" action="check.html">
       <div class="row">
         <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
@@ -393,7 +375,7 @@
       <div class="g-reCAPTCHA" data-sitekey="6LfVv7IZAAAAAEN1ePfNMzehIRcTxeu8fu73pm-z"></div>
       
       <div>
-        <input type="submit" class="btn btn-primary btn-lg btn-block" onclick="saveData(document.getElementsByTagName('form'));">
+        <input type="submit" class="btn btn-primary btn-lg btn-block" >
       </div>
     </form>
     <!-- Optional JavaScript -->
