@@ -11,7 +11,24 @@
     <link rel="stylesheet" type="text/css" href="main.css"> 
     
     <script src="https://www.google.com/reCAPTCHA/api.js" async defer></script>
-    
+    <script>
+      function saveData(from){
+        setCookie("firstName", form[0].firstName.value);
+        setCookie("lastName", form[0].lastName.value);
+        setCookie("email", form[0].email.value);
+        setCookie("address", form[0].address.value);
+        setCookie("city", form[0].city.value);
+        setCookie("state", form[0].state.value);
+        setCookie("zipcode", form[0].zipcode.value);
+        setCookie("month", form[0].month.value);
+        setCookie("day", form[0].day.value);
+        setCookie("year", form[0].year.value);
+        setCookie("number", form[0].number.value);
+        setCookie("education", form[0].education.value);
+        setCookie("feet", form[0].feet.value);
+        setCookie("inches", form[0].inches.value);
+      }
+    </script>
     </head>
   <body>
     <header>
@@ -19,7 +36,7 @@
         <h2>Survey</h2>
       </div>
     </header>
-    <form class="main-form needs-validation" novalidate="" method="GET">
+    <form class="main-form needs-validation" novalidate="" method="POST" action="check.html">
       <div class="row">
         <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
@@ -59,7 +76,7 @@
         <div class="col-md-5 mb-3">
             <label for="state">State</label>
             <select required name="state" class="form-control">
-              <option selected="true" disabled="disabled">State</option>
+              <option selected="true" disabled="disabled" value="">State</option>
               <option value="AL">Alabama</option>
 	            <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -126,7 +143,7 @@
       <div class="row" name="birthDate">
         <div class="col-md-4 mb-3">
             <select required name="month" class="form-control">
-              <option selected="true" disabled="disabled">Month</option>
+              <option selected="true" disabled="disabled" value="">Month</option>
               <option value="1">January</option>
               <option value="2">Feburary</option>
               <option value="3">March</option>
@@ -144,7 +161,7 @@
         </div>
         <div class="col-md-4 mb-3">
             <select required name="day" class="form-control">
-              <option selected="true" disabled="disabled">Day</option>
+              <option selected="true" disabled="disabled" value="">Day</option>
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -181,8 +198,8 @@
         </div>
         <div class="col-md-4 mb-3">
           <div class="form-group">
-            <select aria-label="Year" name="year" id="year" class="form-control">
-              <option selected="true" disabled="disabled">Year</option>
+            <select required name="year" id="year" class="form-control">
+              <option selected="true" disabled="disabled" value="">Year</option>
               <option value="2020">2020</option>
               <option value="2019">2019</option>
               <option value="2018">2018</option>
@@ -317,7 +334,7 @@
             <span class="text-muted">(Optional)</span>
           </label>
           <select name="education" class="form-control">
-          <option value="0">Select One</option>
+          <option selected="true" disabled="disabled" value="">Select One</option>
           <option value="1">High School</option>
           <option value="2">College</option>
           <option value="3">Graduate Studies</option>
@@ -333,7 +350,7 @@
         <div class="row" name="height">
           <div class="col-md-6 mb-3">
             <select name="feet" class="form-control">
-              <option vlaue="0">Foot</option>
+              <option selected="true" disabled="disabled" value="">Foot</option>
               <option vlaue="1">1</option>
               <option vlaue="2">2</option>
               <option vlaue="3">3</option>
@@ -345,7 +362,7 @@
           </div>
           <div class="col-md-6 mb-3">
             <select name="inches" class="form-control">
-              <option value="-1">Inches</option>
+              <option selected="true" disabled="disabled" value="">Inches</option>
               <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
@@ -376,7 +393,7 @@
       <div class="g-reCAPTCHA" data-sitekey="6LfVv7IZAAAAAEN1ePfNMzehIRcTxeu8fu73pm-z"></div>
       
       <div>
-        <input type="submit" class="btn btn-primary btn-lg btn-block">
+        <input type="submit" class="btn btn-primary btn-lg btn-block" onclick="saveData(document.getElementsByTagName('form'));">
       </div>
     </form>
     <!-- Optional JavaScript -->
@@ -384,6 +401,8 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+    </script>
     <script>
       var form = document.querySelector('.needs-validation');
       form.addEventListener('submit', function(event) {
@@ -393,6 +412,9 @@
         }
         form.classList.add('was-validated');
       })
+      if (form[0].email != form[0].confirmEmail){
+          form[0].confirmEmail.add("is-invalid");
+      }
     </script>
   </body>
 </html>
