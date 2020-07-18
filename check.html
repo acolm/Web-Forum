@@ -101,10 +101,25 @@
     </div>
     <script>
         function initMap() {
-            var uluru = {lat: -25.344, lng: 131.036};
             var map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 4, center: uluru});
+                document.getElementById('map'), {zoom: 4, center: {lat: -34.397, lng: 150}});
+                var geocoder = new google.maps.geocoder();
                 var marker = new google.maps.Marker({position: uluru, map: map});
+        }
+
+        function geocodeAddress(geocoder, resultsMap) {
+            var address = document.getElementById('address').value + document.getElementById('state').value + document.getElementById('zipcode');
+            geocoder.geocode({'address' : address}, function(results, status) {
+                if (status === 'OK') {
+                    resultsMap.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else{
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
         }
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7cCdzHDNpmYqjiitIQ6vpTKRqiR_NU6Y&callback=initMap" >
