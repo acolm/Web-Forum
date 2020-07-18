@@ -108,7 +108,7 @@
         }
 
         function geocodeAddress(geocoder, resultsMap) {
-            var address = document.getElementById('address').value + document.getElementById('state').value + document.getElementById('zipcode');
+            var address = document.getElementById('address').value;// + document.getElementById('state').value + document.getElementById('zipcode');
             geocoder.geocode({'address' : address}, function(results, status) {
                 if (status === 'OK') {
                     resultsMap.setCenter(results[0].geometry.location);
@@ -137,6 +137,7 @@
             for (var i = 0, l = params.length; i < l; i++) {
                 tmp = params[i].split('=');
                 data[tmp[0]] = tmp[1];
+                tmp[1].replace(/%/g,"@");
                 console.log(tmp[1]);
                 setStuff(tmp[0], tmp[1]);
             }   
